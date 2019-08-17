@@ -1,29 +1,24 @@
-D
-Aas
-C
-Dd
-Aas
-C
-Dd
-Aas
-C
-Dd
-A
-Cas
-Dd
-A
-Cas
-D
-Ad
-Csa
-Dd
-B
-Cas
-Dd
-C
-Das
-C
-D
-B
-C
-iidasd
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
