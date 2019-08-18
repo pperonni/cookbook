@@ -1,6 +1,8 @@
 <h1>CookBook</h1>
 <p>Bem-vindo ao maior livro de receitas online</p>
 
+  <h1><%= link_to 'Cadastrar Receita', new_recipe_path %></h1>
+
 <% @recipe.each do |recipe| %>
   <h1><%= link_to recipe.title, recipe %></h1>
   <ul>

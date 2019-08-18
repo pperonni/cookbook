@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'recipe#index'
+  root to: 'recipes#index'
 
-  resources :recipe
+  resources :recipes, only: %i[index show new create edit update]
 end
