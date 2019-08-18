@@ -3,7 +3,8 @@ require 'rails_helper'
 feature 'Visit homepage' do
   scenario 'successfully' do
     recipe = Recipe.create(title: 'Brigadeiro', recipe_type: 'Sobremesa',
-      cuisine: 'Brasileira', difficulty: 'Fácil', cook_time: 30)
+      cuisine: 'Brasileira', difficulty: 'Fácil', cook_time: 30,
+      ingredients: 'Leite condensado, manteiga e chocolate em pó', cook_method: 'Misture tudo em uma panela, deixe no fogo, enquanto mexe, até começar a desgrudar do fundo')
 
     visit root_path
 
