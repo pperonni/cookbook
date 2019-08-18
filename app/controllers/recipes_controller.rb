@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to @recipe
     else
+      flash[:alert] = 'Você deve preencher todos os campos'
       render :new
     end
   end
@@ -29,6 +30,7 @@ class RecipesController < ApplicationController
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
+      flash[:alert] = 'Você deve preencher todos os campos'
       render :edit
     end
   end

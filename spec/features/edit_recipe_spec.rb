@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User edit recipes' do
+feature 'User update recipes' do
   scenario 'succesfully' do
     recipe = Recipe.create(title: 'Brigadeiro', recipe_type: 'Sobremesa',
       cuisine: 'Francesa', difficulty: 'Difícil', cook_time: 130,
@@ -26,5 +26,25 @@ feature 'User edit recipes' do
     expect(page).to have_css('p', text: 'Leite condensado, manteiga e chocolate em pó')
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo')
+  end
+
+  scenario 'must fill in all fields' do
+    recipe = Recipe.create(title: 'Brigadeiro', recipe_type: 'Sobremesa',
+      cuisine: 'Brasileira', difficulty: 'Fácil', cook_time: 30,
+      ingredients: 'Leite condensado, manteiga e chocolate em pó',
+      cook_method: 'Misture tudo em uma panela, deixe no fogo, enquanto mexe, até começar a desgrudar do fundo')
+
+    visit root_path
+    click_on recipe.title
+    click_on 'Editar'
+
+    fill_in 'Título', with: ''
+    fill_in 'Dificuldade', with: ''
+    fill_in 'Tempo de Preparo', with: ''
+    fill_in 'Ingredientes', with: ''
+    fill_in 'Como Preparar', with: ''
+    click_on 'Enviar'
+
+    expect(page).to have_content('Você deve preencher todos os campos')
   end
 end

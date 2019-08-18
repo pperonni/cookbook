@@ -26,4 +26,19 @@ feature 'User register recipes' do
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo')
   end
+
+  scenario 'must fill in all fields' do
+    visit root_path
+    click_on 'Cadastrar Receita'
+
+    fill_in 'Título', with: 'Brigadeiro'
+    fill_in 'Tipo de Receita', with: 'Sobremesa'
+    fill_in 'Cozinha', with: 'Brasileira'
+    fill_in 'Tempo de Preparo', with: '30'
+    fill_in 'Ingredientes', with: 'Leite condensado, manteiga e chocolate em pó'
+    fill_in 'Como Preparar', with: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo'
+    click_on 'Enviar'
+
+    expect(page).to have_content('Você deve preencher todos os campos')
+  end
 end
