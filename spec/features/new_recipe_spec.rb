@@ -2,12 +2,13 @@ require 'rails_helper'
 
 feature 'User register recipes' do
   scenario 'succesfully' do
+    RecipeType.create(name: 'Sobremesa')
 
     visit root_path
     click_on 'Cadastrar Receita'
 
     fill_in 'Título', with: 'Brigadeiro'
-    fill_in 'Tipo de Receita', with: 'Sobremesa'
+    select 'Sobremesa', from: 'Tipo de Receita'
     fill_in 'Cozinha', with: 'Brasileira'
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de Preparo', with: '30'
@@ -28,11 +29,13 @@ feature 'User register recipes' do
   end
 
   scenario 'must fill in all fields' do
+    RecipeType.create(name: 'Sobremesa')
+    
     visit root_path
     click_on 'Cadastrar Receita'
 
     fill_in 'Título', with: 'Brigadeiro'
-    fill_in 'Tipo de Receita', with: 'Sobremesa'
+    select 'Sobremesa', from: 'Tipo de Receita'
     fill_in 'Cozinha', with: 'Brasileira'
     fill_in 'Tempo de Preparo', with: '30'
     fill_in 'Ingredientes', with: 'Leite condensado, manteiga e chocolate em pó'

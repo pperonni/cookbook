@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe_type = RecipeType.all
   end
 
   def create
@@ -19,11 +20,13 @@ class RecipesController < ApplicationController
       redirect_to @recipe
     else
       flash[:alert] = 'Você deve preencher todos os campos'
+      @recipe_type = RecipeType.all
       render :new
     end
   end
 
   def edit
+    @recipe_type = RecipeType.all
   end
 
   def update
@@ -31,6 +34,7 @@ class RecipesController < ApplicationController
       redirect_to @recipe
     else
       flash[:alert] = 'Você deve preencher todos os campos'
+      @recipe_type = RecipeType.all
       render :edit
     end
   end
@@ -43,7 +47,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :recipe_type, :cuisine,
+    params.require(:recipe).permit(:title, :recipe_type_id, :cuisine,
       :difficulty, :cook_time, :ingredients, :cook_method)
   end
 end

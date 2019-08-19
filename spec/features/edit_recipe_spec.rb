@@ -2,15 +2,18 @@ require 'rails_helper'
 
 feature 'User update recipes' do
   scenario 'succesfully' do
-    recipe = Recipe.create(title: 'Brigadeiro', recipe_type: 'Sobremesa',
+    RecipeType.create(name: 'Sobremesa')
+    recipe_type = RecipeType.create(name: 'Prato Principal')
+    Recipe.create(title: 'Brigadeiro', recipe_type: recipe_type,
       cuisine: 'Francesa', difficulty: 'Difícil', cook_time: 130,
       ingredients: 'Leite condensado, manteiga e chocolate em pó',
       cook_method: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo')
 
     visit root_path
-    click_on recipe.title
+    click_on 'Brigadeiro'
     click_on 'Editar'
 
+    select 'Sobremesa', from: 'Tipo de Receita'
     fill_in 'Cozinha', with: 'Brasileira'
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de Preparo', with: 30
@@ -29,13 +32,14 @@ feature 'User update recipes' do
   end
 
   scenario 'must fill in all fields' do
-    recipe = Recipe.create(title: 'Brigadeiro', recipe_type: 'Sobremesa',
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    Recipe.create(title: 'Brigadeiro', recipe_type: recipe_type,
       cuisine: 'Brasileira', difficulty: 'Fácil', cook_time: 30,
       ingredients: 'Leite condensado, manteiga e chocolate em pó',
       cook_method: 'Misture tudo em uma panela, deixe no fogo, enquanto mexe, até começar a desgrudar do fundo')
 
     visit root_path
-    click_on recipe.title
+    click_on 'Brigadeiro'
     click_on 'Editar'
 
     fill_in 'Título', with: ''
