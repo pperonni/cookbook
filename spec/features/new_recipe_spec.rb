@@ -30,7 +30,7 @@ feature 'User register recipes' do
 
   scenario 'must fill in all fields' do
     RecipeType.create(name: 'Sobremesa')
-    
+
     visit root_path
     click_on 'Cadastrar Receita'
 
@@ -42,6 +42,6 @@ feature 'User register recipes' do
     fill_in 'Como Preparar', with: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo'
     click_on 'Enviar'
 
-    expect(page).to have_content('Você deve preencher todos os campos')
+    expect(page).to have_content('Não foi possível cadastrar Receita')
   end
 end

@@ -6,7 +6,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -19,7 +18,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to @recipe
     else
-      flash[:alert] = 'Você deve preencher todos os campos'
+      flash[:alert] = 'Não foi possível cadastrar Receita'
       @recipe_type = RecipeType.all
       render :new
     end
@@ -33,7 +32,7 @@ class RecipesController < ApplicationController
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
-      flash[:alert] = 'Você deve preencher todos os campos'
+      flash[:alert] = 'Não foi possível cadastrar Receita'
       @recipe_type = RecipeType.all
       render :edit
     end

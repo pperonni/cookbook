@@ -49,6 +49,6 @@ feature 'User update recipes' do
     fill_in 'Como Preparar', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Você deve preencher todos os campos')
+    expect(page).to have_content('Não foi possível cadastrar Receita')
   end
 end
