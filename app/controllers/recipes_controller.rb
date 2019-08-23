@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe_type = RecipeType.all
+    @cuisine = Cuisine.all
   end
 
   def create
@@ -20,12 +21,14 @@ class RecipesController < ApplicationController
     else
       flash[:alert] = 'Não foi possível cadastrar Receita'
       @recipe_type = RecipeType.all
+      @cuisine = Cuisine.all
       render :new
     end
   end
 
   def edit
     @recipe_type = RecipeType.all
+    @cuisine = Cuisine.all
   end
 
   def update
@@ -34,10 +37,18 @@ class RecipesController < ApplicationController
     else
       flash[:alert] = 'Não foi possível cadastrar Receita'
       @recipe_type = RecipeType.all
+      @cuisine = Cuisine.all
       render :edit
     end
   end
 
+  def search
+    @recipe = Recipe.where('title LIKE ?', "%#{params[:search_for]}%")
+
+    if @recipe.empty?
+      flash[:alert] = 'Nenhuma Receita encontrada'
+    end
+  end
 
   private
 
@@ -46,7 +57,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :recipe_type_id, :cuisine,
+    params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id,
       :difficulty, :cook_time, :ingredients, :cook_method)
   end
 end

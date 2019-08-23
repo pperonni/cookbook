@@ -3,13 +3,14 @@ require 'rails_helper'
 feature 'User register recipes' do
   scenario 'succesfully' do
     RecipeType.create(name: 'Sobremesa')
+    Cuisine.create(name: 'Brasileira')
 
     visit root_path
     click_on 'Cadastrar Receita'
 
     fill_in 'Título', with: 'Brigadeiro'
     select 'Sobremesa', from: 'Tipo de Receita'
-    fill_in 'Cozinha', with: 'Brasileira'
+    select 'Brasileira', from: 'Cozinha'
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de Preparo', with: '30'
     fill_in 'Ingredientes', with: 'Leite condensado, manteiga e chocolate em pó'
@@ -30,13 +31,14 @@ feature 'User register recipes' do
 
   scenario 'must fill in all fields' do
     RecipeType.create(name: 'Sobremesa')
+    Cuisine.create(name: 'Brasileira')
 
     visit root_path
     click_on 'Cadastrar Receita'
 
     fill_in 'Título', with: 'Brigadeiro'
     select 'Sobremesa', from: 'Tipo de Receita'
-    fill_in 'Cozinha', with: 'Brasileira'
+    select 'Brasileira', from: 'Cozinha'
     fill_in 'Tempo de Preparo', with: '30'
     fill_in 'Ingredientes', with: 'Leite condensado, manteiga e chocolate em pó'
     fill_in 'Como Preparar', with: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo'

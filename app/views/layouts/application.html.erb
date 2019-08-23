@@ -10,6 +10,15 @@
   </head>
 
   <body>
+
+    <nav>
+      <%= form_tag(search_path, method: :get) do %>
+        <%= label_tag(:search_for, "Buscar Receitas") %>
+        <%= text_field_tag(:search_for) %>
+        <%= submit_tag("Pesquisar") %>
+      <% end %>
+    </nav>
+
     <%= flash[:alert] %>
     <%= yield %>
   </body>
