@@ -2,10 +2,15 @@ require 'rails_helper'
 
 feature 'User register recipes' do
   scenario 'succesfully' do
+    User.create(email: 'email@email.com', password: '123456')
     RecipeType.create(name: 'Sobremesa')
     Cuisine.create(name: 'Brasileira')
 
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'email@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
     click_on 'Cadastrar Receita'
 
     fill_in 'Título', with: 'Brigadeiro'
@@ -27,13 +32,19 @@ feature 'User register recipes' do
     expect(page).to have_css('p', text: 'Leite condensado, manteiga e chocolate em pó')
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo')
+    expect(page).to have_css('p', text: 'Receita enviada por email@email.com')
   end
 
   scenario 'must fill in all fields' do
+    User.create(email: 'email@email.com', password: '123456')
     RecipeType.create(name: 'Sobremesa')
     Cuisine.create(name: 'Brasileira')
 
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'email@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
     click_on 'Cadastrar Receita'
 
     fill_in 'Título', with: 'Brigadeiro'

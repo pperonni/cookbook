@@ -2,10 +2,11 @@ require 'rails_helper'
 
 feature 'Access recipe details' do
   scenario 'succesfullly' do
+    user = User.create(email: 'email@email.com', password: '123456')
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe = Recipe.create(title: 'Brigadeiro', recipe_type: recipe_type,
-      cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
+      cuisine: cuisine, difficulty: 'Fácil', cook_time: 30, user: user,
       ingredients: 'Leite condensado, manteiga e chocolate em pó', cook_method: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo')
 
     visit root_path
@@ -21,6 +22,7 @@ feature 'Access recipe details' do
     expect(page).to have_css('p', text: recipe.ingredients)
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text: recipe.cook_method)
+    expect(page).to have_css('p', text: 'Receita enviada por email@email.com')
 
     click_on 'Voltar'
     expect(current_path).to eq(root_path)

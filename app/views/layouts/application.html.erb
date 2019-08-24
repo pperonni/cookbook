@@ -17,9 +17,16 @@
         <%= text_field_tag(:search_for) %>
         <%= submit_tag("Pesquisar") %>
       <% end %>
+
+      <% if user_signed_in? %>
+        <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Entrar', new_user_session_path %>
+      <% end %>
     </nav>
 
     <%= flash[:alert] %>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>
