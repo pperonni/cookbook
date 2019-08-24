@@ -1,0 +1,9 @@
+<h1>Minhas Receitas </h1>
+
+<% @recipe.each do |recipe| %>
+  <ul>
+    <li><%= link_to recipe.title, recipe %></li>
+  </ul>
+<% end %>
+
+<%= link_to 'Voltar', root_path%>

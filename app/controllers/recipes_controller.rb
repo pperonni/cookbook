@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: %i[show edit update]
   before_action :authenticate_user!, only: %i[new create edit update]
 
-
   def index
     @recipe = Recipe.all
   end
@@ -55,6 +54,10 @@ class RecipesController < ApplicationController
     if @recipe.empty?
       flash[:alert] = 'Nenhuma Receita encontrada'
     end
+  end
+
+  def myrecipes
+    @recipe = current_user.recipes
   end
 
   private

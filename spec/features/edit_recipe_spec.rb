@@ -67,4 +67,25 @@ feature 'User update recipes' do
 
     expect(page).to have_content('Não foi possível cadastrar Receita')
   end
+
+  scenario 'succesfully' do
+    user = User.create(email: 'email@email.com', password: '123456')
+    User.create(email: 'anotheremail@email.com', password: '123456')
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
+    Recipe.create(title: 'Brigadeiro', recipe_type: recipe_type, user: user,
+      cuisine: cuisine, difficulty: 'Facil', cook_time: 30,
+      ingredients: 'Leite condensado, manteiga e chocolate em pó',
+      cook_method: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo')
+
+    visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'anotheremail@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
+
+    click_on 'Brigadeiro'
+
+    expect(page).not_to have_link 'Editar'
+  end
 end
