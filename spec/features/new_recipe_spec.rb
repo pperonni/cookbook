@@ -20,6 +20,7 @@ feature 'User register recipes' do
     fill_in 'Tempo de Preparo', with: '30'
     fill_in 'Ingredientes', with: 'Leite condensado, manteiga e chocolate em pó'
     fill_in 'Como Preparar', with: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo'
+    attach_file 'Imagem', 'foodrandom.png'
     click_on 'Enviar'
 
     expect(page).to have_css('h1', text: 'Brigadeiro')

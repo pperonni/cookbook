@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :find_recipe, only: %i[show edit update]
+  before_action :find_recipe, only: %i[show edit update add_recipe]
   before_action :authenticate_user!, only: %i[new create edit update]
 
   def index
@@ -60,6 +60,13 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes
   end
 
+  def add_recipe
+    recipe_list = RecipeList.find(params[:recipe_list_item][:recipe_list_id])
+
+    RecipeListItem.create(recipe_list: recipe_list, recipe_id: params[:id])
+    redirect_to recipe_list
+  end
+
   private
 
   def find_recipe
@@ -68,6 +75,6 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id,
-      :difficulty, :cook_time, :ingredients, :cook_method)
+      :difficulty, :cook_time, :ingredients, :cook_method, :image)
   end
 end

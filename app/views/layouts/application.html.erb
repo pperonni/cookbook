@@ -1,33 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Cookbook</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>CookBook</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
 
-    <nav>
-      <%= form_tag(search_path, method: :get) do %>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <h1>CookBook</h1>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Início</a>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="/recipes/new">Cadastrar Receita</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/myrecipes">Minhas Receitas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recipe_lists/new">Criar Listas de Receitas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/mylists">Minhas Listas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-method="delete" href="/users/sign_out">Sair</a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/sign_in">Entrar</a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <div class="container" style="padding-top: 100px">
+    <div class="row">
+      <div class="col-md-3">
+        <%= form_tag(search_path, method: :get) do %>
         <%= label_tag(:search_for, "Buscar Receitas") %>
         <%= text_field_tag(:search_for) %>
         <%= submit_tag("Pesquisar") %>
-      <% end %>
+        <% end %>
+     </div>
 
-      <% if user_signed_in? %>
-        <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-        <%= link_to 'Minhas Receitas', myrecipes_path %>
-      <% else %>
-        <%= link_to 'Entrar', new_user_session_path %>
-      <% end %>
-    </nav>
+     <div class="col-md-9">
+      <%= flash[:alert] %>
+      <%= flash[:notice] %>
+      <!-- Conteudos das paginas -->
+      <%= yield %>
+      </div>
+    </div>
+  </div>
 
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
-    <%= yield %>
-  </body>
+  <footer class="footer bg-light fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 h-100 text-center my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">Cookbook</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Copyleft 2019</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+        <div class="row">
+        <div class="col-lg-12 h-100 text-center my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>
