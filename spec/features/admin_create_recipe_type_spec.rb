@@ -1,9 +1,14 @@
 require 'rails_helper'
 
-feature 'User register recipe_types' do
+feature 'Admin register recipe_types' do
   scenario 'succesfully' do
+    User.create(email: 'admin@email.com', password: '123456', admin: true)
 
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'admin@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
     click_on 'Cadastrar Tipo de Receita'
 
     fill_in 'Nome', with: 'Sobremesa'
@@ -13,8 +18,13 @@ feature 'User register recipe_types' do
   end
 
   scenario 'must fill in all fields' do
+    User.create(email: 'admin@email.com', password: '123456', admin: true)
 
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'admin@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
     click_on 'Cadastrar Tipo de Receita'
 
     fill_in 'Nome', with: ''
@@ -24,8 +34,13 @@ feature 'User register recipe_types' do
   end
 
   scenario 'must fill in all fields' do
+    User.create(email: 'admin@email.com', password: '123456', admin: true)
 
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'admin@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
     click_on 'Cadastrar Tipo de Receita'
 
     fill_in 'Nome', with: 'Sobremesa'

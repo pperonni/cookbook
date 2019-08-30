@@ -1,8 +1,9 @@
 <p>Bem-vindo ao maior livro de receitas online</p>
 
+<% if current_user && current_user.admin? %>
   <%= link_to 'Cadastrar Tipo de Receita', new_recipe_type_path %>
   <%= link_to 'Cadastrar Cozinha', new_cuisine_path %>
-
+<% end %>
 
 <% @recipe.each do |recipe| %>
   <h1><%= link_to recipe.title, recipe %></h1>

@@ -2,8 +2,13 @@ require 'rails_helper'
 
 feature 'User register cuisine' do
   scenario 'succesfully' do
+    User.create(email: 'admin@email.com', password: '123456', admin: true)
 
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'admin@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
     click_on 'Cadastrar Cozinha'
 
     fill_in 'Nome', with: 'Brasileira'
@@ -13,8 +18,13 @@ feature 'User register cuisine' do
   end
 
   scenario 'must fill in all fields' do
+    User.create(email: 'admin@email.com', password: '123456', admin: true)
 
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'admin@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
     click_on 'Cadastrar Cozinha'
 
     fill_in 'Nome', with: ''
@@ -24,8 +34,13 @@ feature 'User register cuisine' do
   end
 
   scenario 'must fill in all fields' do
+    User.create(email: 'admin@email.com', password: '123456', admin: true)
 
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'admin@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'entrar'
     click_on 'Cadastrar Cozinha'
 
     fill_in 'Nome', with: 'Brasileira'
