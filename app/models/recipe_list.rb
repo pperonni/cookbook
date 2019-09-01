@@ -3,5 +3,6 @@ class RecipeList < ApplicationRecord
   has_many :recipe_list_items
   has_many :recipes, through: :recipe_list_items
 
+  validates :name, presence: true
   validates :name, uniqueness: true
 end
