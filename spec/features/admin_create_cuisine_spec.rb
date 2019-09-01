@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User register cuisine' do
+feature 'Admin register cuisine' do
   scenario 'succesfully' do
     User.create(email: 'admin@email.com', password: '123456', admin: true)
 
@@ -33,7 +33,7 @@ feature 'User register cuisine' do
     expect(page).to have_content('Não foi possível cadastrar Tipo de Receita')
   end
 
-  scenario 'must fill in all fields' do
+  scenario 'and can not have same name' do
     User.create(email: 'admin@email.com', password: '123456', admin: true)
 
     visit root_path

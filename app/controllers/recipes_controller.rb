@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
-  before_action :find_recipe, only: %i[show edit update add_recipe]
+
+  before_action :find_recipe, only: %i[show edit update add_recipe approved rejected]
   before_action :authenticate_user!, only: %i[new create edit update]
+  before_action :authorize_admin, only: %i[approved pending rejected approved rejected]
 
   def index
     @recipe = Recipe.all
@@ -70,6 +72,20 @@ class RecipesController < ApplicationController
     redirect_to @recipe_list
   end
 
+  def pending
+    @recipes = Recipe.pending
+  end
+
+  def approved
+    @recipe.approved!
+    redirect_to @recipe
+  end
+
+  def rejected
+    @recipe.rejected!
+    redirect_to @recipe
+  end
+
   private
 
   def find_recipe
@@ -79,5 +95,9 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id,
       :difficulty, :cook_time, :ingredients, :cook_method, :image)
+  end
+
+  def authorize_admin
+    redirect_to root_path unless current_user.admin
   end
 end

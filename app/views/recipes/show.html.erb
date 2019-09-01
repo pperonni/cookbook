@@ -8,7 +8,14 @@
 <p><%= @recipe.ingredients%></p>
 <h3>Como Preparar</h3>
 <p><%= @recipe.cook_method%></p>
-<p>Receita enviada por <%= @recipe.user.email %></p>
+
+<% if @recipe.approved?%>
+  <p>Receita Aprovada</p>
+<% else @recipe.rejected?%>
+  <p>Receita Rejeitada</p>
+<% end%>
+
+<p>Enviada por <%= @recipe.user.email %></p>
 
 <% if current_user && current_user == @recipe.user %>
   <%= link_to 'Editar', edit_recipe_path%>
@@ -21,5 +28,8 @@
     <%= submit_tag("Adicionar") %>
   <% end %>
 <% end %>
+
+<%= link_to 'Aprovar', approved_recipe_path, method: :post%>
+<%= link_to 'Rejeitar', rejected_recipe_path, method: :post%>
 
 <%= link_to 'Voltar', root_path%>

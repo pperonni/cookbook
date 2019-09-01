@@ -3,6 +3,7 @@
 <% if current_user && current_user.admin? %>
   <%= link_to 'Cadastrar Tipo de Receita', new_recipe_type_path %>
   <%= link_to 'Cadastrar Cozinha', new_cuisine_path %>
+  <%= link_to 'Receitas Pendentes', pending_recipes_path %>
 <% end %>
 
 <% @recipe.each do |recipe| %>

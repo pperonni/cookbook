@@ -7,8 +7,11 @@ Rails.application.routes.draw do
 
   resources :recipes, only: %i[index show new create edit update] do
     post 'add_to_list', on: :member
+    get 'pending', on: :collection
+    post 'approved', on: :member
+    post 'rejected', on: :member
   end
-  resources :recipe_types, only: %i[show new create edit update]
-  resources :cuisines, only: %i[show new create edit update]
+  resources :recipe_types, only: %i[show new create]
+  resources :cuisines, only: %i[show new create]
   resources :recipe_lists, only: %i[show new create]
 end

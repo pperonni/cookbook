@@ -22,7 +22,7 @@ feature 'Access recipe details' do
     expect(page).to have_css('p', text: recipe.ingredients)
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text: recipe.cook_method)
-    expect(page).to have_css('p', text: 'Receita enviada por email@email.com')
+    expect(page).to have_css('p', text: 'Enviada por email@email.com')
 
     click_on 'Voltar'
     expect(current_path).to eq(root_path)
