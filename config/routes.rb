@@ -14,4 +14,10 @@ Rails.application.routes.draw do
   resources :recipe_types, only: %i[show new create]
   resources :cuisines, only: %i[show new create]
   resources :recipe_lists, only: %i[show new create]
+
+  namespace :api do
+    namespace :v1 do
+      resources :recipes, only: %i[show]
+    end
+  end
 end

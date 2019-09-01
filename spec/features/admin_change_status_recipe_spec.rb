@@ -20,7 +20,6 @@ feature 'Admin change recipes status' do
                   ingredients: 'Leite, BOLACHA maisena e chocolate em barra',
                   cook_method: 'Faça um creme branco o leite, derreta o chocolate e monte as camadas com a BOLACHA de maisena')
 
-
     visit root_path
     click_on 'Entrar'
     fill_in 'Email', with: 'admin@email.com'
