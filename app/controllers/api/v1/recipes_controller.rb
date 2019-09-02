@@ -13,7 +13,7 @@ class Api::V1::RecipesController < Api::V1::ApiController
     if @recipe.save
       render json: @recipe, status: :created
     else
-      render json: 'Não foi possível criar Tipo de Receita', status: :precondition_failed
+      render json: {msg: 'Não foi possível criar essa Receita', error_type: @recipe.errors.full_messages }, status: :precondition_failed
     end
   end
 
