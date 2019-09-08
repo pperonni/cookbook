@@ -20,6 +20,10 @@ class RecipeTypesController < ApplicationController
     end
   end
 
+  def my_recipe_types
+    @recipe_type = RecipeType.all
+  end
+
   def authorize_admin
     redirect_to root_path unless current_user.admin
   end

@@ -6,6 +6,12 @@
   <%= link_to 'Receitas Pendentes', pending_recipes_path %>
 <% end %>
 
+<p>Pesquisar por:</p>
+<% if current_user %>
+  <%= link_to 'Tipos de Receitas', my_recipe_types_path %>
+  <%= link_to 'Cozinhas', my_cuisines_path %>
+<% end %>
+
 <% @recipe.each do |recipe| %>
   <h1><%= link_to recipe.title, recipe %></h1>
   <ul>

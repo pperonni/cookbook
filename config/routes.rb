@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'search', to: 'recipes#search'
   get 'myrecipes', to: 'recipes#myrecipes'
   get 'mylists', to: 'recipe_lists#mylists'
+  get 'my_recipe_types', to: 'recipe_types#my_recipe_types'
+  get 'my_cuisines', to: 'cuisines#my_cuisines'
 
   resources :recipes, only: %i[index show new create edit update] do
     post 'add_to_list', on: :member

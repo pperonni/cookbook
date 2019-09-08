@@ -1,0 +1,9 @@
+<h1>Tipos de Receitas</h1>
+
+<ul>
+  <% @recipe_type.each do |recipe_type| %>
+      <li><%= link_to recipe_type.name, recipe_type %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Voltar', root_path%>

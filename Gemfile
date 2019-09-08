@@ -28,7 +28,6 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem "factory_bot_rails"
 
 gem 'jquery-rails'
 # Reduces boot times through caching; required in config/boot.rb
@@ -41,6 +40,7 @@ gem 'font-awesome-sass', '~> 5.9.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
   gem 'rspec-rails', '~> 3.8'
 end
 
@@ -55,6 +55,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

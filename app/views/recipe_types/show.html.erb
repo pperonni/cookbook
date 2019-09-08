@@ -1,2 +1,9 @@
 <h1><%= @recipe_type.name%></h1>
+
+<ul>
+  <% @recipe_type.recipes.each do |recipe| %>
+      <li><%= link_to recipe.title, recipe %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Voltar', root_path%>
