@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User search for recipe_type' do
   scenario 'succesfully' do
     user = create(:user)
-    cuisine = create(:cuisine)
-    recipe_type = create(:recipe_type)
-    recipe = create(:recipe)
-    recipe = create(:recipe, title: 'Pavê')
+    create(:cuisine)
+    create(:recipe_type)
+    create(:recipe)
+    create(:recipe, title: 'Pavê')
 
     login_as user, scope: :user
 
@@ -20,7 +22,7 @@ feature 'User search for recipe_type' do
   end
   scenario 'and find nothing' do
     user = create(:user)
-    recipe_type = create(:recipe_type)
+    create(:recipe_type)
 
     login_as user, scope: :user
 

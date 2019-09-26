@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User register recipes' do
@@ -22,12 +24,12 @@ feature 'User register recipes' do
     fill_in 'Como Preparar', with: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo'
     click_on 'Enviar'
 
-    expect(page).to have_css('h1', text: 'Brigadeiro')
+    expect(page).to have_css('h1', text: 'Brigadeiro' )
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: 'Sobremesa')
     expect(page).to have_css('p', text: 'Brasileira')
     expect(page).to have_css('p', text: 'Fácil')
-    expect(page).to have_css('p', text: "30 minutos")
+    expect(page).to have_css('p', text: '30 minutos')
     expect(page).to have_css('h3', text: 'Ingredientes')
     expect(page).to have_css('p', text: 'Leite condensado, manteiga e chocolate em pó')
     expect(page).to have_css('h3', text: 'Como Preparar')

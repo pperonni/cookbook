@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User update recipes' do
@@ -6,7 +8,7 @@ feature 'User update recipes' do
     RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Francesa')
     Cuisine.create(name: 'Brasileira')
-    recipe_type = RecipeType.create(name: 'Prato Principal')
+    recipe_type = RecipeType.create(name: 'Prato Principal' )
     Recipe.create(title: 'Brigadeiro', recipe_type: recipe_type, user: user,
       cuisine: cuisine, difficulty: 'Difícil', cook_time: 130,
       ingredients: 'Leite condensado, manteiga e chocolate em pó',
@@ -32,7 +34,7 @@ feature 'User update recipes' do
     expect(page).to have_css('p', text: 'Sobremesa')
     expect(page).to have_css('p', text: 'Brasileira')
     expect(page).to have_css('p', text: 'Fácil')
-    expect(page).to have_css('p', text: "30 minutos")
+    expect(page).to have_css('p', text: '30 minutos')
     expect(page).to have_css('h3', text: 'Ingredientes')
     expect(page).to have_css('p', text: 'Leite condensado, manteiga e chocolate em pó')
     expect(page).to have_css('h3', text: 'Como Preparar')

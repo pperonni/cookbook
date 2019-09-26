@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/paulap/workspace/repo/cookbook/app/models/user.rb": [
+      "/home/paulap/workspace/cookbook/app/models/user.rb": [
         1,
         1,
         1,
@@ -11,12 +11,12 @@
         null,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/models/application_record.rb": [
+      "/home/paulap/workspace/cookbook/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/models/cuisine.rb": [
+      "/home/paulap/workspace/cookbook/app/models/cuisine.rb": [
         1,
         1,
         null,
@@ -24,13 +24,13 @@
         1,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/models/recipe_list_item.rb": [
+      "/home/paulap/workspace/cookbook/app/models/recipe_list_item.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/models/recipe_list.rb": [
+      "/home/paulap/workspace/cookbook/app/models/recipe_list.rb": [
         1,
         1,
         1,
@@ -40,7 +40,7 @@
         1,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/models/recipe_type.rb": [
+      "/home/paulap/workspace/cookbook/app/models/recipe_type.rb": [
         1,
         1,
         null,
@@ -48,7 +48,7 @@
         1,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/models/recipe.rb": [
+      "/home/paulap/workspace/cookbook/app/models/recipe.rb": [
         1,
         1,
         null,
@@ -69,11 +69,11 @@
         null,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/controllers/application_controller.rb": [
+      "/home/paulap/workspace/cookbook/app/controllers/application_controller.rb": [
         1,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/controllers/recipes_controller.rb": [
+      "/home/paulap/workspace/cookbook/app/controllers/recipes_controller.rb": [
         1,
         null,
         1,
@@ -178,7 +178,7 @@
         null,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/controllers/cuisines_controller.rb": [
+      "/home/paulap/workspace/cookbook/app/controllers/cuisines_controller.rb": [
         1,
         null,
         1,
@@ -201,7 +201,7 @@
         null,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/controllers/recipe_types_controller.rb": [
+      "/home/paulap/workspace/cookbook/app/controllers/recipe_types_controller.rb": [
         1,
         1,
         1,
@@ -234,7 +234,7 @@
         null,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/controllers/recipe_lists_controller.rb": [
+      "/home/paulap/workspace/cookbook/app/controllers/recipe_lists_controller.rb": [
         1,
         1,
         null,
@@ -262,7 +262,7 @@
         null,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/controllers/api/v1/recipe_types_controller.rb": [
+      "/home/paulap/workspace/cookbook/app/controllers/api/v1/recipe_types_controller.rb": [
         1,
         1,
         2,
@@ -274,11 +274,11 @@
         null,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/controllers/api/v1/api_controller.rb": [
+      "/home/paulap/workspace/cookbook/app/controllers/api/v1/api_controller.rb": [
         1,
         null
       ],
-      "/home/paulap/workspace/repo/cookbook/app/controllers/api/v1/recipes_controller.rb": [
+      "/home/paulap/workspace/cookbook/app/controllers/api/v1/recipes_controller.rb": [
         1,
         null,
         1,
@@ -308,6 +308,6 @@
         null
       ]
     },
-    "timestamp": 1567949452
+    "timestamp": 1569506187
   }
 }

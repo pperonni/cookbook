@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'View recipe details' do
@@ -8,7 +10,9 @@ describe 'View recipe details' do
     Recipe.create(title: 'Brigadeiro', recipe_type: recipe_type, user: user,
                   cuisine: cuisine, difficulty: 'Fácil', cook_time: 30,
                   ingredients: 'Leite condensado, manteiga e chocolate em pó',
-                  cook_method: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo')
+                  cook_method: 'Misture tudo em uma panela, ' \
+                               'deixe no fogo enquanto mexe, ' \
+                               'até começar a desgrudar do fundo')
 
     get '/api/v1/recipes/1'
 

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Regiter recipe type' do
   it 'succesfully' do
-
-    post '/api/v1/recipe_types', params: {recipe_type: {name: 'Sobremesa'}}
+    post '/api/v1/recipe_types', params: { recipe_type: { name: 'Sobremesa' } }
 
     json_recipe_type = JSON.parse(response.body, symbolize_names: true)
 
@@ -12,8 +13,7 @@ describe 'Regiter recipe type' do
   end
 
   it 'and its blank' do
-
-    post '/api/v1/recipe_types', params: {recipe_type: {name: ''}}
+    post '/api/v1/recipe_types', params: { recipe_type: { name: '' } }
 
     json_recipe_type = JSON.parse(response.body, symbolize_names: true)
 

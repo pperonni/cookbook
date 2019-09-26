@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Admin change recipes status' do
@@ -13,7 +15,7 @@ feature 'Admin change recipes status' do
                   cook_method: 'Misture tudo em uma panela, deixe no fogo enquanto mexe, até começar a desgrudar do fundo', status: :pending)
     Recipe.create(title: 'Brownie', recipe_type: recipe_type, user: user,
                   cuisine: another_cuisine, difficulty: 'Médio', cook_time: 60,
-                  ingredients: 'Manteiga, ovos, chocolate em pó, farinha e açúcar ',
+                  ingredients: 'Manteiga, ovos, chocolate em pó, farinha e açúcar',
                   cook_method: 'Misture tudo em uma panela até formar um creme, despeje em uma assadeira e leve ao forno por 40 min')
     Recipe.create(title: 'Pavê', recipe_type: recipe_type, user: user,
                   cuisine: cuisine, difficulty: 'Médio', cook_time: 90,
