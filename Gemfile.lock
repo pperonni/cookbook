@@ -205,6 +205,9 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
+    rubocop-rails (2.3.2)
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
     sass (3.7.4)
@@ -290,6 +293,7 @@ DEPENDENCIES
   rails (~> 6.0.0)
   rspec-rails (~> 3.8)
   rubocop
+  rubocop-rails
   sass-rails (~> 5)
   simplecov
   spring

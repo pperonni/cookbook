@@ -10,6 +10,8 @@ AllCops:
    - 'config/**/*'
    - 'script/**/*'
    - 'spec/rails_helper.rb'
+   - 'node_modules/node-sass/src/libsass/contrib/libsass.spec'
+   - 'node_modules/node-sass/src/libsass/extconf.rb'
 
 Documentation:
  Enabled: false

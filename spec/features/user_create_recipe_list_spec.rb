@@ -1,14 +1,12 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 feature 'User create recipe lists' do
   scenario 'succesfully' do
-    user = User.create(email: 'email@email.com', password: '123456')
+    create(:user)
 
     visit root_path
     click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
+    fill_in 'Email', with: 'test@example.com'
     fill_in 'Senha', with: '123456'
     click_on 'entrar'
 
@@ -20,11 +18,11 @@ feature 'User create recipe lists' do
   end
 
   scenario 'succesfully' do
-    user = User.create(email: 'email@email.com', password: '123456')
+    create(:user)
 
     visit root_path
     click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
+    fill_in 'Email', with: 'test@example.com'
     fill_in 'Senha', with: '123456'
     click_on 'entrar'
 
@@ -42,15 +40,16 @@ feature 'User create recipe lists' do
   end
 
   scenario 'succesfully' do
-    user = User.create(email: 'email@email.com', password: '123456')
-    another_user = User.create(email: 'another_email@email.com', password: '123456')
-    RecipeList.create(name: 'Pratos de Natal', user: user)
-    RecipeList.create(name: 'Sobremesas de Domingo', user: user)
-    RecipeList.create(name: 'Lanchinhos da Madrugada', user: another_user)
+    user = create(:user)
+    another_user = create(:user, email: 'email@email.com')
+    create(:recipe_list, name: 'Pratos de Natal', user_id: user.id)
+    create(:recipe_list, name: 'Sobremesas de Domingo', user_id: user.id)
+    create(:recipe_list, name: 'Lanchinhos da Madrugada',
+                         user_id: another_user.id)
 
     visit root_path
     click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
+    fill_in 'Email', with: 'test@example.com'
     fill_in 'Senha', with: '123456'
     click_on 'entrar'
 

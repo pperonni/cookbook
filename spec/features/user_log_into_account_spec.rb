@@ -4,11 +4,11 @@ require 'rails_helper'
 
 feature 'User log into account' do
   scenario 'succesfully' do
-    User.create(email: 'email@email.com', password: '123456')
+    create(:user)
 
     visit root_path
     click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
+    fill_in 'Email', with: 'test@example.com'
     fill_in 'Senha', with: '123456'
     click_on 'entrar'
 
@@ -16,11 +16,11 @@ feature 'User log into account' do
     expect(page).not_to have_link 'Entrar'
   end
   scenario 'succesfully' do
-    User.create(email: 'email@email.com', password: '123456')
+    create(:user)
 
     visit root_path
     click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
+    fill_in 'Email', with: 'test@example.com'
     fill_in 'Senha', with: '123456'
     click_on 'entrar'
 
