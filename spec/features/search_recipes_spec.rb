@@ -56,7 +56,8 @@ feature 'User search recipes' do
                     'farinha e açúcar ',
                     cook_method: 'Misture tudo em uma panela, ' \
                                  'para assim formar um creme, ' \
-                                 'despeje em uma assadeira e leve ao forno por 40 min')
+                                 'despeje em uma assadeira, ' \
+                                 'leve ao forno por 40 min')
     create(:recipe, title: 'Pavê',
                     recipe_type_id: recipe_type.id,
                     user_id: user.id,

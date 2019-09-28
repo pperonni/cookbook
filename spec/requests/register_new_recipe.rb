@@ -9,17 +9,17 @@ describe 'Register new recipe' do
     cuisine = create(:cuisine)
 
     post '/api/v1/recipe_types',
-    params: { recipe: { title: 'Brigadeiro',
-                        recipe_type: recipe_type.id,
-                        user: user.id,
-                        cuisine: cuisine.id,
-                        difficulty: 'Fácil',
-                        cook_time: 30,
-                        ingredients: 'Leite condensado, ' \
-                                    'manteiga e chocolate em pó',
-                        cook_method: 'Misture tudo em uma panela, ' \
-                                    'deixe no fogo enquanto mexe, ' \
-                                    'até começar a desgrudar do fundo' } }
+         params: { recipe: { title: 'Brigadeiro',
+                             recipe_type: recipe_type.id,
+                             user: user.id,
+                             cuisine: cuisine.id,
+                             difficulty: 'Fácil',
+                             cook_time: 30,
+                             ingredients: 'Leite condensado, ' \
+                                         'manteiga e chocolate em pó',
+                             cook_method: 'Misture tudo em uma panela, ' \
+                                         'deixe no fogo enquanto mexe, ' \
+                                         'até começar a desgrudar do fundo' } }
 
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 

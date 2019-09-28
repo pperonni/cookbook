@@ -13,7 +13,7 @@ class RecipeTypesController < ApplicationController
   def create
     @recipe_type = RecipeType.new(params.require(:recipe_type).permit(:name))
     if @recipe_type.save
-        redirect_to @recipe_type
+      redirect_to @recipe_type
     else
       flash[:alert] = 'Não foi possível cadastrar Tipo de Receita'
       render :new
@@ -27,5 +27,4 @@ class RecipeTypesController < ApplicationController
   def authorize_admin
     redirect_to root_path unless current_user.admin
   end
-
 end

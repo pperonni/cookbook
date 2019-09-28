@@ -4,11 +4,13 @@ FactoryBot.define do
     recipe_type_id { nil }
     cuisine_id { nil }
     user_id { nil }
-    difficulty {'Fácil'}
+    difficulty { 'Fácil' }
     cook_time { 30 }
     ingredients { 'Leite condensado, manteiga e chocolate em pó' }
-    cook_method { 'Misture tudo em uma panela, ' \
+    cook_method do
+      'Misture tudo em uma panela, ' \
                   'deixe no fogo enquanto mexe, ' \
-                  'até começar a desgrudar do fundo' }
+                  'até começar a desgrudar do fundo'
+    end
   end
 end

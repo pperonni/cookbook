@@ -57,7 +57,6 @@ feature 'Admin change recipes status' do
     create(:recipe, recipe_type_id: recipe_type.id,
                     user_id: user.id, cuisine_id: cuisine.id)
 
-
     visit root_path
     click_on 'Entrar'
     fill_in 'Email', with: 'admin@email.com'

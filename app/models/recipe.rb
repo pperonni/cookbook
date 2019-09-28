@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  enum status: { pending: 0, approved: 1, rejected: 66}
+  enum status: { pending: 0, approved: 1, rejected: 66 }
 
   belongs_to :recipe_type
   belongs_to :cuisine
@@ -9,7 +9,7 @@ class Recipe < ApplicationRecord
   has_one_attached :image
 
   validates :title, :recipe_type, :cuisine, :difficulty,
-  :cook_time, :ingredients, :cook_method, presence: true
+            :cook_time, :ingredients, :cook_method, presence: true
 
   validates :title, uniqueness: true
 

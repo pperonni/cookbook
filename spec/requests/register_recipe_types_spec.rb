@@ -18,7 +18,7 @@ describe 'Regiter recipe type' do
     json_recipe_type = JSON.parse(response.body, symbolize_names: true)
 
     expect(response.status).to eq 412
-    expect(json_recipe_type[:msg]).to include('Não foi possível criar esse tipo de receita')
+    expect(json_recipe_type[:msg]).to include('Erro ao criar tipo de receita')
     expect(json_recipe_type[:error_type]).to include("Name can't be blank")
   end
 end

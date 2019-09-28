@@ -1,5 +1,5 @@
 class RecipeListsController < ApplicationController
-  before_action :authenticate_user!, only: %i[ new create]
+  before_action :authenticate_user!, only: %i[new create]
 
   def show
     @recipe_list = RecipeList.find(params[:id])
@@ -13,7 +13,7 @@ class RecipeListsController < ApplicationController
     @recipe_list = RecipeList.new(params.require(:recipe_list).permit(:name))
     @recipe_list.user = current_user
     if @recipe_list.save
-        redirect_to @recipe_list
+      redirect_to @recipe_list
     else
       flash[:alert] = 'Não foi possível criar nova Lista'
       render :new

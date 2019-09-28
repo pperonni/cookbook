@@ -32,7 +32,7 @@ feature 'Admin register recipe_types' do
     fill_in 'Nome', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Não foi possível cadastrar Tipo de Receita' )
+    expect(page).to have_content('Não foi possível cadastrar Tipo de Receita')
   end
 
   scenario 'must fill in all fields' do
